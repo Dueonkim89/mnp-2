@@ -21,9 +21,11 @@ app.use((req, res, next) => {
 	next();
 });
 
+/*
 app.use((req, res, next) => {
 	res.render('maintenance.hbs');
 });
+*/
 
 app.use(express.static(__dirname + '/public'));
 
@@ -48,8 +50,14 @@ app.get('/about', (req, res) => {
 	});
 });
 
+app.get('/projects', (req, res) => {
+	res.render('projects.hbs', {
+		pageTitle: 'Project Page'
+	});
+});
+
 app.get('/bad', (req, res) => {
-	res.send({error: 'bad request phaggot'});
+	res.send({error: 'bad request sir'});
 });
 
 app.listen(port, () => {
